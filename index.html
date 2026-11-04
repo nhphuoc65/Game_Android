@@ -12,8 +12,8 @@
       var input = prompt("Vui lòng nhập mật khẩu để truy cập trang web của NGUYEN HONG PHUOC:");
       var inputHash = CryptoJS.SHA256(input).toString();
         
-      alert("input:",input);
-      alert("inputHash:",inputHash,correctPasswordHash);
+      alert("input:"+ input);
+      alert("inputHash:" + inputHash +"//" + correctPasswordHash);
         
         if (inputHash !== correctPasswordHash) {
         alert("Sai mật khẩu! Bạn không có quyền truy cập.");
