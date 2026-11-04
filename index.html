@@ -4,38 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NGUYEN HONG PHUOC</title>
-           
-    <script>
+<script>
  // Hàm băm SHA-256 bằng công cụ có sẵn của trình duyệt (Không cần thư viện ngoài)
   async function checkPassword() {
-    // 🔑 Mã hash SHA-256 viết thường của mật khẩu bạn muốn đặt
     var correctPasswordHash = "8bff2829c1802d848525324929348e4498449f6ec375078e455c2c8c021afeb6"; 
-
     var input = prompt("Vui lòng nhập mật khẩu để truy cập trang web:");
-
     if (input === null || input.trim() === "") {
       window.location.href = "https://google.com";
       return;
     }
-
-    // Tiến hành băm mật khẩu bằng chính trình duyệt
     var msgBuffer = new TextEncoder().encode(input.trim());
     var hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
     var hashArray = Array.from(new Uint8Array(hashBuffer));
     var inputHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-
-    // Hiện bảng debug kiểm tra trực quan bằng dấu cộng (+)
-    alert("input: " + input);
-    alert("inputHash: " + inputHash + "\n//\n" + correctPasswordHash);
-
     if (inputHash !== correctPasswordHash) {
       alert("Sai mật khẩu! Bạn không có quyền truy cập.");
       window.location.href = "https://google.com";
     }
   }
-
-  // Ép trình duyệt kích hoạt kiểm tra ngay khi vừa mở trang
-  checkPassword();    </script>
+  checkPassword(); 
+</script>
     
     <style>
         body {
